@@ -2,21 +2,64 @@
   const toggle = document.getElementById('themeToggle');
   const root = document.body;
 
-  function applySparkleMode(enabled){
-    root.classList.toggle('sparkle', enabled);
-    if(toggle){
-      toggle.textContent = enabled ? 'Calm Mode 🌙' : 'Sparkle Mode ✨';
-      toggle.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+  function applyTheme(theme){
+    // Remove all theme classes
+    root.classList.remove('sparkle', 'dark');
+    
+    // Apply the selected theme
+    if(theme === 'sparkle'){
+      root.classList.add('sparkle');
+    } else if(theme === 'dark'){
+      root.classList.add('dark');
     }
-    localStorage.setItem('sparkle', enabled ? '1' : '0');
+    
+    // Update button text and aria-label
+    if(toggle){
+      let buttonText, ariaLabel;
+      switch(theme){
+        case 'sparkle':
+          buttonText = 'Dark Mode 🌙';
+          ariaLabel = 'Switch to dark mode';
+          break;
+        case 'dark':
+          buttonText = 'Light Mode ☀️';
+          ariaLabel = 'Switch to light mode';
+          break;
+        default:
+          buttonText = 'Sparkle Mode ✨';
+          ariaLabel = 'Switch to sparkle mode';
+      }
+      toggle.textContent = buttonText;
+      toggle.setAttribute('aria-label', ariaLabel);
+    }
+    
+    // Save to localStorage
+    localStorage.setItem('theme', theme);
   }
 
-  const saved = localStorage.getItem('sparkle');
-  applySparkleMode(saved === '1');
+  // Get saved theme from localStorage
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  applyTheme(savedTheme);
 
+  // Theme toggle click handler
   toggle?.addEventListener('click', ()=>{
-    const next = !root.classList.contains('sparkle');
-    applySparkleMode(next);
+    const currentTheme = root.classList.contains('sparkle') ? 'sparkle' : 
+                        root.classList.contains('dark') ? 'dark' : 'light';
+    
+    let nextTheme;
+    switch(currentTheme){
+      case 'light':
+        nextTheme = 'sparkle';
+        break;
+      case 'sparkle':
+        nextTheme = 'dark';
+        break;
+      case 'dark':
+        nextTheme = 'light';
+        break;
+    }
+    
+    applyTheme(nextTheme);
   });
 
   // Micro pop animation on gallery hover via JS fallback (for touch)
