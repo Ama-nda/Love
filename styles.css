@@ -134,11 +134,6 @@ body{
 .btn-small{padding:6px 10px;font-size:12px}
 .divider{border:none;border-top:1px solid var(--pink-200);margin:12px 0}
 
-/* Quiz feedback */
-.quiz-feedback{margin-top:8px}
-.quiz-correct{color:#0f9d58}
-.quiz-wrong{color:#d93025}
-
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .gallery-item{aspect-ratio:1/1;border-radius:16px;background:
   linear-gradient(135deg, var(--pink-200), var(--pink-100));
@@ -165,7 +160,6 @@ body{
 .btn:hover .icon{transform:translateY(-1px)}
 .btn .icon-img{width:18px;height:18px;display:inline-block;margin-right:8px;vertical-align:-3px;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;transition:transform .22s ease}
 .btn:hover .icon-img{transform:translateY(-1px)}
-.btn.selected{outline:2px solid var(--blue-400); outline-offset:1px; filter:saturate(1.05)}
 
 /* Brand buttons */
 .btn-twitch{background:#9146FF;color:#fff}
