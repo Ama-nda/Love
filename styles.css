@@ -9,9 +9,20 @@
   --pink-700:#e13f8a;
   --pink-800:#b93373;
   --pink-900:#7a224d;
+  /* Blue palette to mix with pink */
+  --blue-50:#eef6ff;
+  --blue-100:#ddeeff;
+  --blue-200:#c7e0ff;
+  --blue-300:#a8cdff;
+  --blue-400:#7fb2ff;
+  --blue-500:#5296ff;
+  --blue-600:#3b82f6;
+  --blue-700:#2c6ad7;
+  --blue-800:#1e3a8a;
+  --blue-900:#132a64;
   --rose:#ff6aae;
   --rose-2:#ffb3d6;
-  --bg:#fff6fb;
+  --bg:#f7f8ff;
   --text:#3b2b33;
   --muted:#7d5e6b;
   --card:#ffffff;
@@ -19,13 +30,6 @@
   --radius:18px;
 }
 
-/* Sparkle mode variable overrides for a clearly different look */
-.sparkle{
-  --bg:#ffeefd;
-  --card:#fff8fc;
-  --text:#362330;
-  --muted:#6b4b59;
-}
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -41,8 +45,9 @@ body{
 .bg-gradient{
   position:fixed;inset:0;z-index:-1;
   background:radial-gradient(1200px 800px at 20% 10%, var(--pink-100), transparent 60%),
-             radial-gradient(900px 600px at 80% 20%, var(--pink-200), transparent 65%),
-             radial-gradient(1000px 700px at 40% 80%, var(--pink-50), transparent 60%);
+             radial-gradient(1000px 700px at 80% 20%, var(--blue-100), transparent 65%),
+             radial-gradient(1100px 800px at 40% 80%, var(--pink-50), transparent 60%),
+             radial-gradient(900px 600px at 75% 85%, var(--blue-200), transparent 62%);
   filter:saturate(115%);
   transition:background 0.3s ease, filter 0.3s ease;
 }
@@ -68,6 +73,34 @@ body{
 .section{padding:28px 0}
 .section-title{margin:0 0 12px;font-size:28px}
 .section-subtitle{margin:0 0 10px}
+
+/* Shiny grey titles */
+.section-title,
+.section-subtitle,
+.mini-card h4{
+  background:linear-gradient(90deg, #9ca3af 0%, #6b7280 50%, #9ca3af 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  background-size:200% 100%;
+  background-position:-100% 0;
+  text-shadow:0 0 8px rgba(107,114,128,.25), 0 0 14px rgba(82,150,255,.12);
+  animation:shiny-sweep 4s ease-in-out infinite;
+}
+
+@keyframes shiny-sweep{
+  to{ background-position:100% 0; }
+}
+
+/* Keep emojis native in This or That headings */
+.mini-card[data-question] h4{
+  background:none;
+  -webkit-background-clip:initial;
+  background-clip:initial;
+  color:var(--text);
+  text-shadow:none;
+  animation:none;
+}
 .muted{color:var(--muted)}
 
 .section-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -80,6 +113,31 @@ body{
 
 .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
 .chip{padding:8px 12px;border-radius:999px;background:var(--pink-100);border:1px solid var(--pink-200);font-weight:600;color:var(--pink-800)}
+
+/* Forms */
+.form{display:flex;flex-direction:column;gap:8px}
+.form label{font-weight:600}
+.form input,.form textarea{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--pink-200);background:#fff;color:var(--text);font-family:inherit;font-size:14px}
+.form textarea{resize:vertical;min-height:96px}
+.form-row{display:flex;gap:8px;align-items:flex-end}
+.form-field{flex:1}
+
+/* Inbox */
+.inbox{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:8px}
+.inbox-item{border:1px solid var(--pink-200);border-radius:14px;padding:12px;background:#fff}
+.inbox-top{display:flex;justify-content:space-between;gap:8px;margin-bottom:6px}
+.inbox-author{font-weight:700;color:var(--pink-800)}
+.inbox-time{color:var(--muted);font-size:12px}
+.inbox-body{white-space:pre-wrap}
+.inbox-actions{margin-top:10px;display:flex;justify-content:flex-end}
+.inbox-actions-row{margin-top:8px;display:flex;justify-content:flex-end}
+.btn-small{padding:6px 10px;font-size:12px}
+.divider{border:none;border-top:1px solid var(--pink-200);margin:12px 0}
+
+/* Quiz feedback */
+.quiz-feedback{margin-top:8px}
+.quiz-correct{color:#0f9d58}
+.quiz-wrong{color:#d93025}
 
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .gallery-item{aspect-ratio:1/1;border-radius:16px;background:
@@ -97,7 +155,7 @@ body{
 .btn::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.25) 45%, rgba(255,255,255,.0) 60%);
   transform:translateX(-120%);transition:transform .6s ease}
 .btn:hover::after{transform:translateX(120%)}
-.btn-primary{background:var(--rose);color:white;box-shadow:0 8px 20px rgba(255,106,174,.35)}
+.btn-primary{background:linear-gradient(135deg, var(--rose) 0%, var(--blue-500) 100%);color:white;box-shadow:0 8px 20px rgba(82,150,255,.35)}
 .btn-primary:hover{box-shadow:0 10px 26px rgba(255,106,174,.45)}
 .btn-soft{background:var(--pink-100);color:var(--pink-800);border:1px solid var(--pink-200)}
 .btn-soft:hover{background:var(--pink-200);color:var(--pink-900);box-shadow:0 8px 20px rgba(255,179,214,.35);border-color:var(--pink-300)}
@@ -107,6 +165,7 @@ body{
 .btn:hover .icon{transform:translateY(-1px)}
 .btn .icon-img{width:18px;height:18px;display:inline-block;margin-right:8px;vertical-align:-3px;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;transition:transform .22s ease}
 .btn:hover .icon-img{transform:translateY(-1px)}
+.btn.selected{outline:2px solid var(--blue-400); outline-offset:1px; filter:saturate(1.05)}
 
 /* Brand buttons */
 .btn-twitch{background:#9146FF;color:#fff}
@@ -125,11 +184,6 @@ body{
 [data-pop="true"]{transition:transform .15s ease, box-shadow .15s ease}
 [data-pop="true"]:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 10px 24px rgba(255,106,174,.25)}
 
-/* Theme toggle (sparkle mode) */
-.sparkle .bg-gradient{filter:saturate(135%) brightness(1.06)}
-.sparkle .card{box-shadow:0 18px 42px rgba(255,106,174,.32)}
-.sparkle .site-header{background:rgba(255,255,255,.72)}
-.sparkle .btn-primary{filter:saturate(1.1)}
 
 /* Dark mode variable overrides */
 .dark{
@@ -143,8 +197,9 @@ body{
 /* Dark mode specific styles */
 .dark .bg-gradient{
   background:radial-gradient(1200px 800px at 20% 10%, #1a1a1a, transparent 60%),
-             radial-gradient(900px 600px at 80% 20%, #2a2a2a, transparent 65%),
-             radial-gradient(1000px 700px at 40% 80%, #0f0f0f, transparent 60%);
+             radial-gradient(900px 600px at 80% 20%, #1c2333, transparent 65%),
+             radial-gradient(1000px 700px at 40% 80%, #0f0f0f, transparent 60%),
+             radial-gradient(900px 600px at 75% 85%, #162a4d, transparent 62%);
   filter:saturate(80%) brightness(0.8);
 }
 

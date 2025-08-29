@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Amanda • Computer Engineering student • Cheerful soul who loves painting and swimming" />
+    <meta name="description" content="i am a computer engineering student who's mostly into gaming my fav games are rocket league , Dead by daylight and Every rockstar's game possibe i currently know Java , c++ , python and js and HTML and i can't wait to learn more and explore more as i grow old" />
     <title>Amanda • About Me</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,8 +22,9 @@
           <a href="#about">About</a>
           <a href="#interests">Interests</a>
           <a href="#connect">Connect</a>
+          <a href="#anon">Q&A</a>
         </nav>
-        <button id="themeToggle" class="btn btn-ghost" aria-label="Toggle theme">Sparkle Mode ✨</button>
+        <button id="themeToggle" class="btn btn-ghost" aria-label="Toggle theme">Dark Mode 🌙</button>
       </div>
     </header>
 
@@ -31,14 +32,33 @@
       <section class="hero container">
         <div class="hero-content card float-in">
           <h1 class="title">Hi, I’m <span class="accent">Amanda</span> ✨</h1>
-          <p class="subtitle">Computer Engineering student • Cheerful • Painter • Swimmer</p>
-          <p class="lead">
-            I’m a curious creator who loves building things with code, splashing color on
-            canvas, and gliding through the water. Pink, playful, and full of heart!
-          </p>
+          <p class="subtitle">Computer Engineering student • Gamer</p>
+          <p class="lead">Welcome to my corner of the web.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#about">Learn more</a>
             <a class="btn btn-soft" href="#connect">See my vibes</a>
+          </div>
+          <div class="card" id="guestbook">
+            <h3 class="section-subtitle">Guestbook</h3>
+            <p class="muted">A digital wall where friends and visitors leave short messages.</p>
+            <form id="guestForm" class="form">
+              <label for="guestMessage">Your message</label>
+              <textarea id="guestMessage" name="message" rows="3" maxlength="300" placeholder="Leave a short note…" required></textarea>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="guestName" class="muted">Name (optional)</label>
+                  <input id="guestName" name="name" type="text" maxlength="40" placeholder="Your name" />
+                </div>
+                <button type="submit" class="btn btn-primary" id="guestSubmit">Sign</button>
+              </div>
+            </form>
+            <hr class="divider" />
+            <h4 style="margin:8px 0 6px">Guestbook</h4>
+            <div id="guestEmpty" class="muted">No signatures yet. Be the first!</div>
+            <ul id="guestList" class="inbox"></ul>
+            <div class="inbox-actions">
+              <button type="button" class="btn btn-soft" id="clearGuest">Clear all</button>
+            </div>
           </div>
         </div>
       </section>
@@ -47,26 +67,29 @@
         <div class="section-grid">
           <div class="card">
             <h2 class="section-title">About Me</h2>
-            <p>
-              I’m a <strong>Computer Engineering</strong> student who loves solving problems and making
-              delightful experiences. I’m a <strong>cheerful</strong> person who believes in kindness,
-              curiosity, and cute aesthetics.
-            </p>
-            <p>
-              When I’m not studying or coding, you’ll find me <strong>painting</strong> soft
-              pastel scenes or <strong>swimming</strong> my stress away. Balance is beautiful!
-            </p>
+            <p>I am a Computer Engineering student with a strong interest in gaming—especially Rocket League, Dead by Daylight, and Rockstar titles. I currently work with Java, C++, Python, JavaScript, and HTML, and I’m excited to keep learning and exploring as I grow. Beyond tech, I love psychology and reading books.</p>
           </div>
-          <div class="card">
-            <h3 class="section-subtitle">What I’m into</h3>
-            <ul class="chips">
-              <li class="chip">Web Dev</li>
-              <li class="chip">UI/UX</li>
-              <li class="chip">Algorithms</li>
-              <li class="chip">Gaming</li>
-              <li class="chip">Painting</li>
-              <li class="chip">Swimming</li>
-            </ul>
+          <div class="card" id="anon">
+            <h3 class="section-subtitle">Q&A Box</h3>
+            <p class="muted">Visitors can ask anonymous or signed questions. I’ll answer them below later.</p>
+            <form id="anonForm" class="form">
+              <label for="anonMessage">Your question</label>
+              <textarea id="anonMessage" name="message" rows="4" maxlength="500" placeholder="Ask me anything…" required></textarea>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="anonName" class="muted">Name (optional)</label>
+                  <input id="anonName" name="name" type="text" maxlength="40" placeholder="Your name" />
+                </div>
+                <button type="submit" class="btn btn-primary" id="anonSubmit">Ask</button>
+              </div>
+            </form>
+            <hr class="divider" />
+            <h4 style="margin:8px 0 6px">Questions & Answers</h4>
+            <div id="anonEmpty" class="muted">No questions yet. Be the first!</div>
+            <ul id="anonList" class="inbox"></ul>
+            <div class="inbox-actions">
+              <button type="button" class="btn btn-soft" id="clearInbox">Clear all</button>
+            </div>
           </div>
         </div>
       </section>
@@ -76,20 +99,195 @@
           <h2 class="section-title">Interests</h2>
           <div class="cards-row">
             <article class="mini-card">
-              <div class="icon" aria-hidden="true">🎨</div>
-              <h4>Painting</h4>
-              <p>Color palettes, soft gradients, dreamy shapes — I adore it all.</p>
+              <div class="icon" aria-hidden="true">🎮</div>
+              <h4>Gaming</h4>
+              <p>Favorites: Rocket League, Dead by Daylight, and every Rockstar game possible.</p>
             </article>
             <article class="mini-card">
-              <div class="icon" aria-hidden="true">🏊‍♀️</div>
-              <h4>Swimming</h4>
-              <p>My calm place. Strokes, splashes, and a clear mind.</p>
+              <div class="icon" aria-hidden="true">🧠</div>
+              <h4>Psychology</h4>
+              <p>Curious about how people think, learn, and make decisions.</p>
             </article>
             <article class="mini-card">
-              <div class="icon" aria-hidden="true">💻</div>
-              <h4>Coding</h4>
-              <p>Turning sweet ideas into friendly, functional interfaces.</p>
+              <div class="icon" aria-hidden="true">📚</div>
+              <h4>Reading</h4>
+              <p>Always exploring new ideas and perspectives through books.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="this-or-that" class="section container">
+        <div class="card">
+          <h2 class="section-title">This or That</h2>
+          <p class="muted">Pick your side! Votes are saved in your browser.</p>
+          <div class="cards-row">
+            <article class="mini-card" data-question="cats_dogs">
+              <h4>🐱 Cats or 🐶 Dogs?</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-question="cats_dogs" data-option="cats">Cats</button>
+                <button class="btn btn-soft" data-question="cats_dogs" data-option="dogs">Dogs</button>
+              </div>
+              <p class="muted" style="margin:6px 0 0">Cats: <span id="count-cats_dogs-cats">0</span> • Dogs: <span id="count-cats_dogs-dogs">0</span></p>
+            </article>
+            <article class="mini-card" data-question="coffee_tea">
+              <h4>☕ Coffee or 🍵 Tea?</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-question="coffee_tea" data-option="coffee">Coffee</button>
+                <button class="btn btn-soft" data-question="coffee_tea" data-option="tea">Tea</button>
+              </div>
+              <p class="muted" style="margin:6px 0 0">Coffee: <span id="count-coffee_tea-coffee">0</span> • Tea: <span id="count-coffee_tea-tea">0</span></p>
+            </article>
+            <article class="mini-card" data-question="dota_lol">
+              <h4>Dota 2 or League of Legends?</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-question="dota_lol" data-option="dota2">Dota 2</button>
+                <button class="btn btn-soft" data-question="dota_lol" data-option="lol">League of Legends</button>
+              </div>
+              <p class="muted" style="margin:6px 0 0">Dota 2: <span id="count-dota_lol-dota2">0</span> • LoL: <span id="count-dota_lol-lol">0</span></p>
+            </article>
+            <article class="mini-card" data-question="fivem_gtav">
+              <h4>FiveM or GTA V?</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-question="fivem_gtav" data-option="fivem">FiveM</button>
+                <button class="btn btn-soft" data-question="fivem_gtav" data-option="gtav">GTA V</button>
+              </div>
+              <p class="muted" style="margin:6px 0 0">FiveM: <span id="count-fivem_gtav-fivem">0</span> • GTA V: <span id="count-fivem_gtav-gtav">0</span></p>
+            </article>
+            <article class="mini-card" data-question="java_python">
+              <h4>Java or Python?</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-question="java_python" data-option="java">Java</button>
+                <button class="btn btn-soft" data-question="java_python" data-option="python">Python</button>
+              </div>
+              <p class="muted" style="margin:6px 0 0">Java: <span id="count-java_python-java">0</span> • Python: <span id="count-java_python-python">0</span></p>
+            </article>
+          </div>
+          <div class="inbox-actions" style="margin-top:12px">
+            <button type="button" class="btn btn-ghost" id="clearThisThat">Clear votes</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="quiz" class="section container">
+        <div class="card">
+          <h2 class="section-title">Trivia / Quiz</h2>
+          <p class="muted">A quick quiz about me. Tap to reveal the answers.</p>
+          <div class="cards-row">
+            <article class="mini-card quiz-card" data-quiz-id="q1">
+              <h4>Which of these is my favorite food?</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q1" data-option="pizza">Pizza</button>
+                <button class="btn btn-soft" data-quiz-id="q1" data-option="indomie">Indomie</button>
+                <button class="btn btn-soft" data-quiz-id="q1" data-option="shawerma">Shawerma</button>
+                <button class="btn btn-soft" data-quiz-id="q1" data-option="pasta">Pasta</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q1" style="display:none"></div>
+            </article>
+
+            <article class="mini-card quiz-card" data-quiz-id="q2">
+              <h4>My favorite song:</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q2" data-option="i_see_fire">I See Fire — Ed Sheeran</button>
+                <button class="btn btn-soft" data-quiz-id="q2" data-option="daylight">Daylight — Taylor Swift</button>
+                <button class="btn btn-soft" data-quiz-id="q2" data-option="blank_space">Blank Space — Taylor Swift</button>
+                <button class="btn btn-soft" data-quiz-id="q2" data-option="el_diablo">El Diablo — MGK</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q2" style="display:none"></div>
+            </article>
+
+            <article class="mini-card quiz-card" data-quiz-id="q3">
+              <h4>Favorite movie:</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q3" data-option="spider_man">Spider‑Man</button>
+                <button class="btn btn-soft" data-quiz-id="q3" data-option="divergent">Divergent</button>
+                <button class="btn btn-soft" data-quiz-id="q3" data-option="culpa_mia">Culpa Mía</button>
+                <button class="btn btn-soft" data-quiz-id="q3" data-option="fast_and_furious">Fast & Furious</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q3" style="display:none"></div>
+            </article>
+
+            <article class="mini-card quiz-card" data-quiz-id="q4">
+              <h4>Place I want to travel to:</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q4" data-option="uae">UAE</button>
+                <button class="btn btn-soft" data-quiz-id="q4" data-option="germany">Germany</button>
+                <button class="btn btn-soft" data-quiz-id="q4" data-option="spain">Spain</button>
+                <button class="btn btn-soft" data-quiz-id="q4" data-option="uk">UK</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q4" style="display:none"></div>
+            </article>
+
+            <article class="mini-card quiz-card" data-quiz-id="q5">
+              <h4>My favorite color in clothes:</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q5" data-option="black">Black</button>
+                <button class="btn btn-soft" data-quiz-id="q5" data-option="purple">Purple</button>
+                <button class="btn btn-soft" data-quiz-id="q5" data-option="beige">Beige</button>
+                <button class="btn btn-soft" data-quiz-id="q5" data-option="pink">Pink</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q5" style="display:none"></div>
+            </article>
+
+            <article class="mini-card quiz-card" data-quiz-id="q6">
+              <h4>I am a person with a lot of:</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q6" data-option="standards">Standards</button>
+                <button class="btn btn-soft" data-quiz-id="q6" data-option="humor">Humor</button>
+                <button class="btn btn-soft" data-quiz-id="q6" data-option="love">Love</button>
+                <button class="btn btn-soft" data-quiz-id="q6" data-option="dreams">Dreams</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q6" style="display:none"></div>
+            </article>
+
+            <article class="mini-card quiz-card" data-quiz-id="q7">
+              <h4>What do I hate the most?</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q7" data-option="men">Men</button>
+                <button class="btn btn-soft" data-quiz-id="q7" data-option="flies">Flies</button>
+                <button class="btn btn-soft" data-quiz-id="q7" data-option="manipulators">Manipulators</button>
+                <button class="btn btn-soft" data-quiz-id="q7" data-option="stubbed_toe">Stubbed toe</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q7" style="display:none"></div>
+            </article>
+
+            <article class="mini-card quiz-card" data-quiz-id="q8">
+              <h4>First impression most people take of me:</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q8" data-option="smart">Smart</button>
+                <button class="btn btn-soft" data-quiz-id="q8" data-option="charismatic">Charismatic</button>
+                <button class="btn btn-soft" data-quiz-id="q8" data-option="funny">Funny</button>
+                <button class="btn btn-soft" data-quiz-id="q8" data-option="spiteful">Spiteful</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q8" style="display:none"></div>
+            </article>
+
+            <article class="mini-card quiz-card" data-quiz-id="q9">
+              <h4>What are the creatures that I defend the most?</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q9" data-option="cats">Cats</button>
+                <button class="btn btn-soft" data-quiz-id="q9" data-option="women">Women</button>
+                <button class="btn btn-soft" data-quiz-id="q9" data-option="hamsters">Hamsters</button>
+                <button class="btn btn-soft" data-quiz-id="q9" data-option="chihuahua">Chihuahua</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q9" style="display:none"></div>
+            </article>
+
+            <article class="mini-card quiz-card" data-quiz-id="q10">
+              <h4>My top 1 game:</h4>
+              <div class="hero-actions">
+                <button class="btn btn-soft" data-quiz-id="q10" data-option="csgo">CS:GO</button>
+                <button class="btn btn-soft" data-quiz-id="q10" data-option="tf2">Team Fortress 2</button>
+                <button class="btn btn-soft" data-quiz-id="q10" data-option="dbd">Dead by Daylight</button>
+                <button class="btn btn-soft" data-quiz-id="q10" data-option="rocket_league">Rocket League</button>
+              </div>
+              <div class="muted quiz-feedback" id="feedback-q10" style="display:none"></div>
+            </article>
+          </div>
+          <div class="hero-actions" style="margin-top:12px;flex-wrap:wrap">
+            <button class="btn btn-primary" id="quizSubmit" type="button">Reveal my grade</button>
+            <button class="btn btn-soft" id="quizReset" type="button">Reset quiz</button>
+            <span id="quizResult" class="muted" style="margin-left:8px"></span>
           </div>
         </div>
       </section>
